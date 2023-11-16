@@ -338,6 +338,7 @@ em {
 #main {
   width: 100%;
   color: #333;
+  overflow: hidden;
 }
 /* portfolio first main : 표지 */
 .first-main {
@@ -1174,7 +1175,7 @@ em {
   border-radius: 20px;
   margin: 3rem 0;
   position: relative;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2)
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
 .section05 .inner .item-box .bar {
   width: 100%;
@@ -1292,18 +1293,6 @@ em {
   .swiper-wrapper
   .swiper-slide
   a
-  .folder-front {
-  position: absolute;
-  z-index: 5;
-  bottom: 10%;
-}
-.section05
-  .inner
-  .item-box
-  .etcSwiper
-  .swiper-wrapper
-  .swiper-slide
-  a
   .slide-img {
   z-index: 4;
   display: block;
@@ -1314,7 +1303,7 @@ em {
   /* border-radius: 30px; */
   visibility: hidden;
   width: 90%;
-  height: 0%;
+  height: 0;
   margin: 0 5%;
   transition: bottom 0.5s;
 }
@@ -1329,13 +1318,32 @@ em {
   z-index: 4;
   display: block;
   position: absolute;
-  bottom: 50%;
+  bottom: 66%;
   left: 0;
-  border-radius: 1.875rem;
+  border-radius: 1rem;
   visibility: visible;
-  height: 80%;
+  height: 82%;
 }
-
+.section05
+  .inner
+  .item-box
+  .etcSwiper
+  .swiper-wrapper
+  .swiper-slide
+  a
+  .folder {
+    position: relative;
+  }
+  .section05
+    .inner
+    .item-box
+    .etcSwiper
+    .swiper-wrapper
+    .swiper-slide .folder-front {
+    position: absolute;
+    z-index: 5;
+    bottom: 15%;
+  }
 /* swiper-slide-active되서 튀어나온 이미지 누를 때 나오는 팝업 */
 .etc-design-popup {
   position: fixed;

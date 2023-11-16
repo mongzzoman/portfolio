@@ -61,13 +61,13 @@ $(function () {
 
   // etc design부분 슬라이더
   new Swiper(".etcSwiper", {
-    slidesPerView: 4.5,
+    // slidesPerView: 4.5,
     loop: true,
-    spaceBetween: 50,
-    // autoplay: {
-    //   delay: 3500,
-    //   disableOnInteraction: false,
-    // },
+    spaceBetween: 50,    
+    autoplay: {
+      delay: 3500,
+      disableOnInteraction: false,
+    },
     scrollbar: {
       el: ".swiper-scrollbar",
       clickable: true,
@@ -78,17 +78,68 @@ $(function () {
       nextEl: ".swiper-button-next",
       prevEl: ".swiper-button-prev",
     },
-    // breakpoints: {
-    //   774: {
-    //     slidesPerView: 6.5,
-    //     spaceBetween: 30,
-    //   },
-    //   360: {
-    //     slidesPerView: 8.5,
-    //     spaceBetween: 20,
-    //   }
-    // }
+    breakpoints: {
+      1920: {
+        slidesPerView: 4.5,
+        // centeredSlides: true,
+      },
+      768: {
+        slidesPerView: 4,
+        // spaceBetween: 30,
+        // centeredSlides: true,
+      },
+      425: {
+        slidesPerView: 3.4,
+        // spaceBetween: 30,
+        // centeredSlides: true,
+      },
+      375: {
+        slidesPerView: 3,
+      },
+      320: {
+        slidesPerView: 3,
+        // spaceBetween: 20,
+      }
+    }
   });
+    // next 버튼을 누르면 할일
+    // 반복문 i 7 === > 변수 => i 
+    // 드래그 바의 css를 transform x위치를 이동시키기
+
+    // $('.swiper-button-next').click(function(){
+    //   let num = 0;
+    //   for(let i=0; i < 9; i++){
+    //     num += 30;
+    //     $('.swiper-scrollbar-drag').css('transform', 'translateX(' + 30 + 'px)');
+    //   }
+    // });
+
+    $(window).resize(function() {
+      if ($(window).width() <= 400) {
+        let num = 0;
+        let count = 0
+        let maxcount = 9
+        $('.swiper-button-next').click(function() {
+          // for(let i=0; i < 9; i++){
+            if(count < maxcount){
+              num += 25;
+              $('.swiper-scrollbar-drag').css('transform', 'translate3d('+ num +'px,0,0)');
+              count++
+              console.log(count)
+            }else{
+              $('.swiper-scrollbar-drag').css('transform', 'translate3d(0,0,0)');
+            }
+          // };
+        });
+      }
+    });
+
+  //   let num = 0;
+
+  // $('.swiper-button-next').click(function() {
+  //   num += 30;
+  //   $('.swiper-scrollbar-drag').css('transform', 'translateX(' + 30 + 'px)');
+  // });
 
   // swiper-slide-active 된 이미지 누를 때 나오는 팝업
   $(".slide-img").click(function (e) {
@@ -322,6 +373,10 @@ const body = document.querySelector("body"),
         folder[i].setAttribute("src", "images/mini_folder.png");
       }
     }
+
+
+
+
   });
 
 //loading-bar 한칸씩나오게
